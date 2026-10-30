@@ -1,0 +1,23 @@
+CONFIDENTIAL - internal use only
+
+Proposal for Northwind Studio: Website Redesign
+Prepared by the delivery team, October 2026
+
+Hi Jordan,
+
+Thanks for the call. Please send signed approvals to jordan.rivera@example-client.test
+or phone me on +1 415 555 0134 if anything is unclear.
+
+Project Bluefin kicks off on Tuesday. Our internal margin on this deal is 42%, so we
+cannot go below the quoted fee. The invoice will be charged to the card
+4111 1111 1111 1111 on file.
+
+Deployment notes (remove before sending):
+  api_key = sk-FAKE0000000000000000000000EXAMPLE
+  AWS access key id: AKIAIOSFODNN7EXAMPLE
+-----BEGIN RSA PRIVATE KEY-----
+MIIFAKEFAKEFAKEFAKEFAKEFAKEFAKEFAKEFAKEFAKEFAKE
+FAKEFAKEFAKEFAKEFAKEFAKEFAKEFAKEFAKEFAKEFAKEFAKE
+-----END RSA PRIVATE KEY-----
+
+The kickoff agenda is attached. Looking forward to working together.
