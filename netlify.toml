@@ -1,3 +1,25 @@
 [build]
-  command = "npm run build"
-  publish = "dist"
+  command = "pip install -r requirements.txt"
+  publish = "."
+  functions = "netlify/functions"
+
+[build.environment]
+  PYTHON_VERSION = "3.11"
+  STREAMLIT_SERVER_PORT = "8501"
+  STREAMLIT_SERVER_HEADLESS = "true"
+  STREAMLIT_SERVER_ENABLE_CORS = "false"
+  STREAMLIT_SERVER_ENABLE_XSRF_PROTECTION = "true"
+
+# Netlify Functions with Python
+[functions]
+  # Python runtime doesn't use node_bundler
+  included_files = ["app.py", "sharesentry/**/*", "requirements.txt", ".streamlit/**/*", "sample_data/**/*", "netlify/functions/**/*"]
+
+# For Streamlit on Netlify, we use a background function approach
+# The function starts Streamlit and proxies requests
+# Note: This is a simplified setup; for production consider a dedicated Streamlit host
+
+[dev]
+  command = "streamlit run app.py --server.port 8501 --server.headless true"
+  port = 8501
+  publish = "."

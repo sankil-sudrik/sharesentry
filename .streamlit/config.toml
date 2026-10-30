@@ -1,5 +1,27 @@
 [server]
 maxUploadSize = 50
+headless = true
+enableCORS = false
+enableXsrfProtection = true
+port = 8501
 
 [browser]
 gatherUsageStats = false
+
+[theme]
+# Neumorphism Premium Theme - Warm neutral tones, no blue/purple
+base = "light"
+primaryColor = "#C4A35A"           # Warm gold accent
+backgroundColor = "#E8E4DD"        # Soft warm off-white
+secondaryBackgroundColor = "#D9D3C8" # Slightly darker for cards
+textColor = "#3D3A35"              # Warm dark gray
+font = "system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif"
+
+# Neumorphism shadow tokens (used via custom CSS)
+# Light shadow:  8px 8px 16px #BEB9AD, -8px -8px 16px #FFFDF5
+# Dark shadow:   8px 8px 16px #BEB9AD, -8px -8px 16px #FFFDF5
+# Pressed:       inset 4px 4px 8px #BEB9AD, inset -4px -4px 8px #FFFDF5
+
+[ui]
+# Enable custom CSS injection
+# The neumorphism.css file will be loaded via a small bootstrap in app.py

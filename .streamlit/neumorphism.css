@@ -1,0 +1,789 @@
+/* Neumorphism Premium UI - Warm Neutral Theme */
+/* No blue/purple colors - using warm gold, soft grays, off-whites */
+
+/* CSS Custom Properties for Neumorphism */
+:root {
+  --neo-bg: #E8E4DD;
+  --neo-card: #D9D3C8;
+  --neo-accent: #C4A35A;
+  --neo-accent-hover: #B8954F;
+  --neo-accent-pressed: #A68544;
+  --neo-text: #3D3A35;
+  --neo-text-muted: #6B675F;
+  --neo-border: #C9C3B8;
+  --neo-shadow-light: #FFFDF5;
+  --neo-shadow-dark: #BEB9AD;
+  --neo-shadow-pressed: #B0ABA0;
+  --neo-success: #6B8E5C;
+  --neo-warning: #C4A35A;
+  --neo-error: #C46A5A;
+  --neo-info: #5A8CC4;
+  --neo-radius: 12px;
+  --neo-radius-sm: 8px;
+  --neo-transition: 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Base Neumorphism Shadows */
+.neo-shadow {
+  box-shadow:
+    8px 8px 16px var(--neo-shadow-dark),
+    -8px -8px 16px var(--neo-shadow-light);
+  border-radius: var(--neo-radius);
+  background: var(--neo-bg);
+  border: none;
+  transition: box-shadow var(--neo-transition), transform var(--neo-transition);
+}
+
+.neo-shadow:hover {
+  box-shadow:
+    10px 10px 20px var(--neo-shadow-dark),
+    -10px -10px 20px var(--neo-shadow-light);
+}
+
+.neo-shadow:active,
+.neo-shadow.pressed {
+  box-shadow:
+    inset 4px 4px 8px var(--neo-shadow-dark),
+    inset -4px -4px 8px var(--neo-shadow-light);
+  transform: translateY(1px);
+}
+
+/* Card variant */
+.neo-card {
+  background: var(--neo-card);
+  box-shadow:
+    6px 6px 12px var(--neo-shadow-dark),
+    -6px -6px 12px var(--neo-shadow-light);
+  border-radius: var(--neo-radius);
+  border: 1px solid var(--neo-border);
+  transition: box-shadow var(--neo-transition), transform var(--neo-transition);
+}
+
+.neo-card:hover {
+  box-shadow:
+    8px 8px 16px var(--neo-shadow-dark),
+    -8px -8px 16px var(--neo-shadow-light);
+}
+
+/* Pressed/inset variant */
+.neo-inset {
+  background: var(--neo-bg);
+  box-shadow:
+    inset 4px 4px 8px var(--neo-shadow-dark),
+    inset -4px -4px 8px var(--neo-shadow-light);
+  border-radius: var(--neo-radius);
+  border: none;
+  transition: box-shadow var(--neo-transition);
+}
+
+/* Button Styles */
+.neo-button {
+  background: var(--neo-bg);
+  color: var(--neo-text);
+  border: none;
+  border-radius: var(--neo-radius);
+  padding: 12px 24px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  box-shadow:
+    4px 4px 8px var(--neo-shadow-dark),
+    -4px -4px 8px var(--neo-shadow-light);
+  transition: all var(--neo-transition);
+}
+
+.neo-button:hover {
+  box-shadow:
+    6px 6px 12px var(--neo-shadow-dark),
+    -6px -6px 12px var(--neo-shadow-light);
+  color: var(--neo-accent);
+}
+
+.neo-button:active {
+  box-shadow:
+    inset 3px 3px 6px var(--neo-shadow-dark),
+    inset -3px -3px 6px var(--neo-shadow-light);
+  transform: translateY(1px);
+}
+
+.neo-button-primary {
+  background: var(--neo-accent);
+  color: #FFFDF5;
+  box-shadow:
+    4px 4px 8px var(--neo-shadow-dark),
+    -4px -4px 8px var(--neo-shadow-light);
+}
+
+.neo-button-primary:hover {
+  background: var(--neo-accent-hover);
+  color: #FFFDF5;
+  box-shadow:
+    6px 6px 12px var(--neo-shadow-dark),
+    -6px -6px 12px var(--neo-shadow-light);
+}
+
+.neo-button-primary:active {
+  background: var(--neo-accent-pressed);
+  box-shadow:
+    inset 3px 3px 6px var(--neo-shadow-dark),
+    inset -3px -3px 6px var(--neo-shadow-light);
+}
+
+/* Input Fields */
+.neo-input,
+.neo-textarea,
+.neo-select {
+  background: var(--neo-bg);
+  border: none;
+  border-radius: var(--neo-radius-sm);
+  padding: 12px 16px;
+  font-size: 1rem;
+  color: var(--neo-text);
+  box-shadow:
+    inset 3px 3px 6px var(--neo-shadow-dark),
+    inset -3px -3px 6px var(--neo-shadow-light);
+  transition: box-shadow var(--neo-transition);
+  width: 100%;
+}
+
+.neo-input:focus,
+.neo-textarea:focus,
+.neo-select:focus {
+  outline: none;
+  box-shadow:
+    inset 3px 3px 6px var(--neo-shadow-dark),
+    inset -3px -3px 6px var(--neo-shadow-light),
+    0 0 0 3px var(--neo-accent);
+}
+
+/* Metric Cards */
+.neo-metric {
+  background: var(--neo-card);
+  border-radius: var(--neo-radius);
+  padding: 24px;
+  box-shadow:
+    6px 6px 12px var(--neo-shadow-dark),
+    -6px -6px 12px var(--neo-shadow-light);
+  border: 1px solid var(--neo-border);
+  text-align: center;
+  transition: transform var(--neo-transition), box-shadow var(--neo-transition);
+}
+
+.neo-metric:hover {
+  transform: translateY(-2px);
+  box-shadow:
+    10px 10px 20px var(--neo-shadow-dark),
+    -10px -10px 20px var(--neo-shadow-light);
+}
+
+.neo-metric-value {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--neo-accent);
+  line-height: 1.2;
+}
+
+.neo-metric-label {
+  font-size: 0.875rem;
+  color: var(--neo-text-muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-top: 8px;
+}
+
+/* Sidebar */
+.neo-sidebar {
+  background: var(--neo-card);
+  box-shadow:
+    inset 8px 0 16px -8px var(--neo-shadow-dark),
+    inset -8px 0 16px -8px var(--neo-shadow-light);
+  border-right: 1px solid var(--neo-border);
+}
+
+/* Tabs */
+.neo-tabs {
+  display: flex;
+  gap: 8px;
+  background: var(--neo-bg);
+  padding: 6px;
+  border-radius: var(--neo-radius);
+  box-shadow:
+    inset 3px 3px 6px var(--neo-shadow-dark),
+    inset -3px -3px 6px var(--neo-shadow-light);
+}
+
+.neo-tab {
+  background: transparent;
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--neo-radius-sm);
+  font-weight: 500;
+  color: var(--neo-text-muted);
+  cursor: pointer;
+  transition: all var(--neo-transition);
+}
+
+.neo-tab:hover {
+  color: var(--neo-text);
+}
+
+.neo-tab.active {
+  background: var(--neo-accent);
+  color: #FFFDF5;
+  box-shadow:
+    3px 3px 6px var(--neo-shadow-dark),
+    -3px -3px 6px var(--neo-shadow-light);
+}
+
+/* Dataframe/Table */
+.neo-table {
+  background: var(--neo-card);
+  border-radius: var(--neo-radius);
+  overflow: hidden;
+  box-shadow:
+    6px 6px 12px var(--neo-shadow-dark),
+    -6px -6px 12px var(--neo-shadow-light);
+  border: 1px solid var(--neo-border);
+}
+
+.neo-table th {
+  background: var(--neo-bg);
+  color: var(--neo-text);
+  font-weight: 600;
+  padding: 14px 16px;
+  text-align: left;
+  border-bottom: 1px solid var(--neo-border);
+}
+
+.neo-table td {
+  padding: 12px 16px;
+  color: var(--neo-text);
+  border-bottom: 1px solid var(--neo-border);
+}
+
+.neo-table tr:last-child td {
+  border-bottom: none;
+}
+
+.neo-table tr:hover td {
+  background: var(--neo-bg);
+}
+
+/* Alert/Status Messages */
+.neo-alert {
+  border-radius: var(--neo-radius);
+  padding: 16px 20px;
+  border: none;
+  box-shadow:
+    4px 4px 8px var(--neo-shadow-dark),
+    -4px -4px 8px var(--neo-shadow-light);
+}
+
+.neo-alert-success {
+  background: #E8F0E4;
+  color: #4A6B3D;
+  border-left: 4px solid var(--neo-success);
+}
+
+.neo-alert-warning {
+  background: #F5F0E4;
+  color: #8B7A3D;
+  border-left: 4px solid var(--neo-warning);
+}
+
+.neo-alert-error {
+  background: #F5E4E4;
+  color: #8B4A3D;
+  border-left: 4px solid var(--neo-error);
+}
+
+.neo-alert-info {
+  background: #E4EDF5;
+  color: #3D6B8B;
+  border-left: 4px solid var(--neo-info);
+}
+
+/* Expander */
+.neo-expander {
+  background: var(--neo-card);
+  border-radius: var(--neo-radius);
+  border: 1px solid var(--neo-border);
+  box-shadow:
+    4px 4px 8px var(--neo-shadow-dark),
+    -4px -4px 8px var(--neo-shadow-light);
+  overflow: hidden;
+}
+
+.neo-expander summary {
+  padding: 16px 20px;
+  font-weight: 600;
+  color: var(--neo-text);
+  cursor: pointer;
+  list-style: none;
+}
+
+.neo-expander summary::-webkit-details-marker {
+  display: none;
+}
+
+.neo-expander summary::before {
+  content: '+';
+  float: right;
+  color: var(--neo-accent);
+  font-weight: 700;
+}
+
+.neo-expander[open] summary::before {
+  content: '-';
+}
+
+.neo-expander-content {
+  padding: 0 20px 20px;
+  color: var(--neo-text);
+}
+
+/* File Uploader */
+.neo-uploader {
+  background: var(--neo-bg);
+  border: 2px dashed var(--neo-border);
+  border-radius: var(--neo-radius);
+  padding: 40px 20px;
+  text-align: center;
+  box-shadow:
+    inset 4px 4px 8px var(--neo-shadow-dark),
+    inset -4px -4px 8px var(--neo-shadow-light);
+  transition: all var(--neo-transition);
+}
+
+.neo-uploader:hover,
+.neo-uploader.drag-over {
+  border-color: var(--neo-accent);
+  box-shadow:
+    inset 4px 4px 8px var(--neo-shadow-dark),
+    inset -4px -4px 8px var(--neo-shadow-light),
+    0 0 0 3px var(--neo-accent);
+}
+
+/* Progress/Spinner */
+.neo-spinner {
+  width: 40px;
+  height: 40px;
+  border: 3px solid var(--neo-border);
+  border-top-color: var(--neo-accent);
+  border-radius: 50%;
+  animation: neo-spin 1s linear infinite;
+}
+
+@keyframes neo-spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Download Buttons */
+.neo-download {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: var(--neo-bg);
+  color: var(--neo-text);
+  border: none;
+  border-radius: var(--neo-radius);
+  padding: 12px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow:
+    4px 4px 8px var(--neo-shadow-dark),
+    -4px -4px 8px var(--neo-shadow-light);
+  transition: all var(--neo-transition);
+  text-decoration: none;
+}
+
+.neo-download:hover {
+  color: var(--neo-accent);
+  box-shadow:
+    6px 6px 12px var(--neo-shadow-dark),
+    -6px -6px 12px var(--neo-shadow-light);
+}
+
+/* Header/Title */
+.neo-header {
+  color: var(--neo-text);
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.neo-subheader {
+  color: var(--neo-text-muted);
+  font-weight: 500;
+}
+
+/* Divider */
+.neo-divider {
+  border: none;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--neo-border), transparent);
+  margin: 24px 0;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--neo-bg);
+  box-shadow:
+    inset 2px 2px 4px var(--neo-shadow-dark),
+    inset -2px -2px 4px var(--neo-shadow-light);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--neo-border);
+  border-radius: 4px;
+  box-shadow:
+    inset 1px 1px 2px var(--neo-shadow-dark),
+    inset -1px -1px 2px var(--neo-shadow-light);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--neo-accent);
+}
+
+/* Streamlit-specific overrides */
+.stApp {
+  background: var(--neo-bg) !important;
+}
+
+.main .block-container {
+  background: transparent !important;
+  padding-top: 2rem !important;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+  background: var(--neo-card) !important;
+  border-right: 1px solid var(--neo-border) !important;
+}
+
+section[data-testid="stSidebar"] .stRadio > label {
+  background: var(--neo-bg) !important;
+  border-radius: var(--neo-radius-sm) !important;
+  padding: 10px 16px !important;
+  margin: 4px 8px !important;
+  box-shadow:
+    3px 3px 6px var(--neo-shadow-dark),
+    -3px -3px 6px var(--neo-shadow-light) !important;
+  transition: all var(--neo-transition) !important;
+}
+
+section[data-testid="stSidebar"] .stRadio > label:hover {
+  box-shadow:
+    5px 5px 10px var(--neo-shadow-dark),
+    -5px -5px 10px var(--neo-shadow-light) !important;
+}
+
+section[data-testid="stSidebar"] .stRadio > label[data-selected="true"] {
+  background: var(--neo-accent) !important;
+  color: #FFFDF5 !important;
+  box-shadow:
+    inset 3px 3px 6px var(--neo-shadow-dark),
+    inset -3px -3px 6px var(--neo-shadow-light) !important;
+}
+
+/* Buttons */
+.stButton > button {
+  background: var(--neo-bg) !important;
+  color: var(--neo-text) !important;
+  border: none !important;
+  border-radius: var(--neo-radius) !important;
+  padding: 12px 24px !important;
+  font-weight: 600 !important;
+  box-shadow:
+    4px 4px 8px var(--neo-shadow-dark),
+    -4px -4px 8px var(--neo-shadow-light) !important;
+  transition: all var(--neo-transition) !important;
+}
+
+.stButton > button:hover {
+  box-shadow:
+    6px 6px 12px var(--neo-shadow-dark),
+    -6px -6px 12px var(--neo-shadow-light) !important;
+  color: var(--neo-accent) !important;
+  background: var(--neo-bg) !important;
+}
+
+.stButton > button:active {
+  box-shadow:
+    inset 3px 3px 6px var(--neo-shadow-dark),
+    inset -3px -3px 6px var(--neo-shadow-light) !important;
+  transform: translateY(1px) !important;
+}
+
+.stButton > button[kind="primary"] {
+  background: var(--neo-accent) !important;
+  color: #FFFDF5 !important;
+}
+
+.stButton > button[kind="primary"]:hover {
+  background: var(--neo-accent-hover) !important;
+  color: #FFFDF5 !important;
+}
+
+/* Download buttons */
+.stDownloadButton > button {
+  background: var(--neo-bg) !important;
+  color: var(--neo-text) !important;
+  border: none !important;
+  border-radius: var(--neo-radius) !important;
+  box-shadow:
+    4px 4px 8px var(--neo-shadow-dark),
+    -4px -4px 8px var(--neo-shadow-light) !important;
+}
+
+.stDownloadButton > button:hover {
+  color: var(--neo-accent) !important;
+  box-shadow:
+    6px 6px 12px var(--neo-shadow-dark),
+    -6px -6px 12px var(--neo-shadow-light) !important;
+}
+
+/* Inputs */
+.stTextInput > div > div > input,
+.stTextArea > div > div > textarea,
+.stSelectbox > div > div > div > div {
+  background: var(--neo-bg) !important;
+  border: none !important;
+  border-radius: var(--neo-radius-sm) !important;
+  box-shadow:
+    inset 3px 3px 6px var(--neo-shadow-dark),
+    inset -3px -3px 6px var(--neo-shadow-light) !important;
+  color: var(--neo-text) !important;
+}
+
+.stTextInput > div > div > input:focus,
+.stTextArea > div > div > textarea:focus {
+  box-shadow:
+    inset 3px 3px 6px var(--neo-shadow-dark),
+    inset -3px -3px 6px var(--neo-shadow-light),
+    0 0 0 3px var(--neo-accent) !important;
+}
+
+/* Checkbox */
+.stCheckbox > label {
+  background: var(--neo-bg) !important;
+  border-radius: var(--neo-radius-sm) !important;
+  padding: 8px 12px !important;
+  box-shadow:
+    inset 2px 2px 4px var(--neo-shadow-dark),
+    inset -2px -2px 4px var(--neo-shadow-light) !important;
+}
+
+/* Metrics */
+[data-testid="stMetric"] {
+  background: var(--neo-card) !important;
+  border-radius: var(--neo-radius) !important;
+  padding: 20px !important;
+  box-shadow:
+    6px 6px 12px var(--neo-shadow-dark),
+    -6px -6px 12px var(--neo-shadow-light) !important;
+  border: 1px solid var(--neo-border) !important;
+}
+
+[data-testid="stMetric"] > div:first-child {
+  color: var(--neo-text-muted) !important;
+  font-weight: 600 !important;
+}
+
+[data-testid="stMetric"] > div:last-child {
+  color: var(--neo-accent) !important;
+  font-weight: 700 !important;
+}
+
+/* Dataframe */
+.stDataFrame {
+  background: var(--neo-card) !important;
+  border-radius: var(--neo-radius) !important;
+  box-shadow:
+    6px 6px 12px var(--neo-shadow-dark),
+    -6px -6px 12px var(--neo-shadow-light) !important;
+  border: 1px solid var(--neo-border) !important;
+}
+
+/* Alerts */
+.stAlert {
+  border-radius: var(--neo-radius) !important;
+  border: none !important;
+  box-shadow:
+    4px 4px 8px var(--neo-shadow-dark),
+    -4px -4px 8px var(--neo-shadow-light) !important;
+}
+
+.stAlert[data-baseweb="notification"] {
+  background: var(--neo-card) !important;
+}
+
+/* Success */
+.stSuccess {
+  background: #E8F0E4 !important;
+  color: #4A6B3D !important;
+  border-left: 4px solid var(--neo-success) !important;
+}
+
+/* Warning */
+.stWarning {
+  background: #F5F0E4 !important;
+  color: #8B7A3D !important;
+  border-left: 4px solid var(--neo-warning) !important;
+}
+
+/* Error */
+.stError {
+  background: #F5E4E4 !important;
+  color: #8B4A3D !important;
+  border-left: 4px solid var(--neo-error) !important;
+}
+
+/* Info */
+.stInfo {
+  background: #E4EDF5 !important;
+  color: #3D6B8B !important;
+  border-left: 4px solid var(--neo-info) !important;
+}
+
+/* Expander */
+.streamlit-expanderHeader {
+  background: var(--neo-card) !important;
+  border-radius: var(--neo-radius) !important;
+  border: 1px solid var(--neo-border) !important;
+  box-shadow:
+    4px 4px 8px var(--neo-shadow-dark),
+    -4px -4px 8px var(--neo-shadow-light) !important;
+  font-weight: 600 !important;
+  color: var(--neo-text) !important;
+}
+
+.streamlit-expanderContent {
+  background: var(--neo-bg) !important;
+  border-radius: 0 0 var(--neo-radius) var(--neo-radius) !important;
+  border: 1px solid var(--neo-border) !important;
+  border-top: none !important;
+  box-shadow:
+    inset 4px 4px 8px var(--neo-shadow-dark),
+    inset -4px -4px 8px var(--neo-shadow-light) !important;
+}
+
+/* File Uploader */
+.stFileUploader > div > div {
+  background: var(--neo-bg) !important;
+  border: 2px dashed var(--neo-border) !important;
+  border-radius: var(--neo-radius) !important;
+  box-shadow:
+    inset 4px 4px 8px var(--neo-shadow-dark),
+    inset -4px -4px 8px var(--neo-shadow-light) !important;
+}
+
+.stFileUploader > div > div:hover {
+  border-color: var(--neo-accent) !important;
+}
+
+/* Tabs */
+.stTabs [data-baseweb="tab-list"] {
+  background: var(--neo-bg) !important;
+  border-radius: var(--neo-radius) !important;
+  padding: 6px !important;
+  box-shadow:
+    inset 3px 3px 6px var(--neo-shadow-dark),
+    inset -3px -3px 6px var(--neo-shadow-light) !important;
+}
+
+.stTabs [data-baseweb="tab"] {
+  background: transparent !important;
+  border: none !important;
+  border-radius: var(--neo-radius-sm) !important;
+  color: var(--neo-text-muted) !important;
+  font-weight: 500 !important;
+}
+
+.stTabs [data-baseweb="tab"]:hover {
+  color: var(--neo-text) !important;
+}
+
+.stTabs [aria-selected="true"] {
+  background: var(--neo-accent) !important;
+  color: #FFFDF5 !important;
+  box-shadow:
+    3px 3px 6px var(--neo-shadow-dark),
+    -3px -3px 6px var(--neo-shadow-light) !important;
+}
+
+/* Selectbox */
+.stSelectbox > div > div {
+  background: var(--neo-bg) !important;
+  border-radius: var(--neo-radius-sm) !important;
+  box-shadow:
+    inset 3px 3px 6px var(--neo-shadow-dark),
+    inset -3px -3px 6px var(--neo-shadow-light) !important;
+}
+
+/* Slider */
+.stSlider > div > div > div > div {
+  background: var(--neo-accent) !important;
+}
+
+/* Markdown */
+.stMarkdown {
+  color: var(--neo-text) !important;
+}
+
+/* Caption */
+.stCaption {
+  color: var(--neo-text-muted) !important;
+}
+
+/* Header elements */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--neo-text) !important;
+}
+
+/* Horizontal rule */
+hr {
+  border: none !important;
+  height: 1px !important;
+  background: linear-gradient(90deg, transparent, var(--neo-border), transparent) !important;
+  margin: 24px 0 !important;
+}
+
+/* Code blocks */
+.stCodeBlock {
+  background: var(--neo-bg) !important;
+  border-radius: var(--neo-radius) !important;
+  border: 1px solid var(--neo-border) !important;
+  box-shadow:
+    inset 3px 3px 6px var(--neo-shadow-dark),
+    inset -3px -3px 6px var(--neo-shadow-light) !important;
+}
+
+/* Spinner */
+.stSpinner > div {
+  border-top-color: var(--neo-accent) !important;
+  border-color: var(--neo-border) !important;
+}
+
+/* Tooltip */
+.stTooltipContent {
+  background: var(--neo-card) !important;
+  border-radius: var(--neo-radius) !important;
+  box-shadow:
+    6px 6px 12px var(--neo-shadow-dark),
+    -6px -6px 12px var(--neo-shadow-light) !important;
+  border: 1px solid var(--neo-border) !important;
+}
+
+/* Multiselect */
+.stMultiSelect > div > div {
+  background: var(--neo-bg) !important;
+  border-radius: var(--neo-radius-sm) !important;
+  box-shadow:
+    inset 3px 3px 6px var(--neo-shadow-dark),
+    inset -3px -3px 6px var(--neo-shadow-light) !important;
+}

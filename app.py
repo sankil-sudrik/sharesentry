@@ -4,9 +4,17 @@ from __future__ import annotations
 
 import json
 import uuid
+from pathlib import Path
 from typing import Callable, Dict, List
 
 import streamlit as st
+
+
+def load_custom_css() -> None:
+    """Inject neumorphism custom CSS."""
+    css_path = Path(__file__).parent / ".streamlit" / "neumorphism.css"
+    if css_path.exists():
+        st.html(f"<style>{css_path.read_text()}</style>")
 
 from sharesentry.ai import AIError, list_models
 from sharesentry.audit import csv_column_summary, run_audit, verify_redaction
@@ -268,6 +276,7 @@ PAGES: Dict[str, Callable[[Workspace, Settings], None]] = {
 
 def main() -> None:
     st.set_page_config(page_title="ShareSentry", page_icon="🛡️", layout="wide")
+    load_custom_css()
     try:
         settings = load_settings()
     except ValueError as exc:

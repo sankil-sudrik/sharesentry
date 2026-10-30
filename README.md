@@ -57,6 +57,38 @@ cp .env.example .env                                    # then edit AI_PROVIDER 
 streamlit run app.py
 ```
 
+### Deploy to Netlify
+
+ShareSentry includes Netlify configuration for serverless deployment.
+
+1. **Push to GitHub** — this repository with `netlify.toml`, `.streamlit/`, and `netlify/functions/`
+
+2. **Connect to Netlify** — Import the repo in Netlify dashboard
+
+3. **Configure build settings** (auto-detected from `netlify.toml`):
+   - Build command: `pip install -r requirements.txt`
+   - Publish directory: `.` (repository root)
+   - Functions directory: `netlify/functions`
+
+4. **Add environment variables** in Netlify → Site settings → Environment variables:
+   | Variable | Required | Description |
+   |---|---|---|
+   | `AI_PROVIDER` | No | `nvidia` \| `nebius` \| `groq` \| `custom` (default: `nvidia`) |
+   | `AI_API_KEY` | Yes* | Your API key for the chosen provider |
+   | `AI_BASE_URL` | No | Custom endpoint override |
+   | `AI_MODEL` | No | Custom model ID override |
+   | `AI_TIMEOUT_SECONDS` | No | Request timeout (default: 45) |
+   | `AI_MAX_OUTPUT_TOKENS` | No | Max response tokens (default: 900) |
+   | `AI_MAX_INPUT_CHARS` | No | Max input chars sent to AI (default: 6000) |
+   | `SHARESENTRY_DATA_DIR` | No | Data directory (default: `./data`) |
+   | `SHARESENTRY_MAX_UPLOAD_MB` | No | Max upload size (default: 10) |
+
+   *AI review requires `AI_API_KEY`; deterministic checks work without it.
+
+5. **Deploy** — Netlify will build and deploy. The app runs on a Netlify Function with Streamlit proxied via redirects.
+
+> **Note**: Netlify Functions have a 10s timeout (configurable up to 260s on Pro). For production use with AI review, consider a longer-running host (Railway, Render, Fly.io) or increase the function timeout.
+
 Without an API key everything except the AI review works. Create a workspace on the login screen, then use **Run on synthetic sample** on the Audit page for an instant demo (all values are fake).
 
 ### AI providers
